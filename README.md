@@ -2,6 +2,8 @@
 
 Welcome to the Campus Event Navigation System! This project is a comprehensive web application designed to manage and navigate events on a campus. It provides functionalities for user registration, event management, and user-administrator communication.
 
+- The Campus Event Navigation System is a web application developed using Spring Boot, Thymeleaf, and MySQL, aimed at simplifying the management and navigation of campus events. It provides secure user registration and authentication, allowing users to view detailed event information such as locations, categories, sponsors, and coordinators. Administrators have the ability to manage events, sponsors, categories, coordinators, and user profiles. Additionally, the system includes a contact form to facilitate communication between users and administrators. The application features a robust backend and a user-friendly interface built with HTML, CSS, JavaScript, and Bootstrap, ensuring a seamless experience for both users and administrators.
+
 ## Features
 
 - **User Registration and Authentication**
