@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Feedback</title>
+</head>
+<body>
+	<section  class="mt-2">
+		<div class="card mr-3 ml-3" style="margin:16px;">
+		 <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+		        <h3 class="text-center  text-white pt-1 mt-1">Feedback Record</h3>
+		    </div>
+		<!-- this div only shown when contact is set in model -->
+		  <div class="card-body mr-3">
+		  	
+		  	
+		  	<div class="table-responsive">
+		  		<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">User_ID</th>
+			      <th scope="col">Feedback</th>
+			        <th scope="col" class="text-center">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			   
+			   
+			    <tr th:each="e : ${feedback}">
+			      <th th:text="'FEED' + ${e.id}"></th>
+			      
+			       <td th:text="'USERID' + ${e.userid}">
+			      </td>
+			     
+			      <td th:text="${e.feedback}"></td>
+			       <td class="text-center">
+			    	  <a th:onclick="|deleteFeedback(${e.id})|" class="btn btn-danger btn-sm">Delete</a>
+			  		
+			  	
+			    </td>
+			    </tr>
+			  
+			  </tbody>
+			</table>
+		  	
+		  	</div>
+		  	
+
+			
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination">
+			   
+			    <li th:if="${currentPage != 0}" class="page-item"><a class="page-link"  th:href="@{'/member/show-feedback/'+${currentPage-1}}">Previous</a></li>
+			   
+			    <li   th:classappend="${currentPage==i-1?'active':''}"  
+	 				th:each="i : ${#numbers.sequence(1,totalPages)}"  class="page-item"><a class="page-link" 
+	 				th:href="@{'/member/show-feedback/'+${i-1}}">
+	 			 <span th:text="${i}"></span></a></li>
+			    
+			     <li  th:if="${currentPage != totalPages-1}" class="page-item"><a class="page-link" th:href="@{'/member/show-feedback/'+${currentPage+1}}">Next</a></li>
+			  
+			  </ul>
+			</nav>
+ 
+			
+			
+		  </div>
+		  
+		</div>
+		
+	   <script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#managefeedback').addClass("active");
+   	});
+   </script>
+   
+	</section>
+	 
+</body>
+</html>

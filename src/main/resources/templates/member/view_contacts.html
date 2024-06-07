@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Contacts</title>
+</head>
+<body>
+	<section  class="mt-2">
+		<div class="card mr-3 ml-3" style="margin:16px;">
+		 <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+		        <h3 class="text-center  text-white pt-1 mt-1">Contacts Record</h3>
+		    </div>
+		<!-- this div only shown when contact is set in model -->
+		  <div class="card-body mr-3">
+		  	
+		  	
+		  	<div class="table-responsive">
+		  		<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Subject</th>
+			     <th scope="col" class="text-center">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			   
+			   
+			    <tr th:each="e : ${contact}">
+			      <th th:text="'CONT' + ${e.id}"></th>
+			      
+			       <td th:text="${e.name}">
+			      </td>
+			     
+			      <td th:text="${e.email}"></td>
+			       <td th:text="${e.subject}"></td>
+			       <td class="text-center">
+			       
+			         <a th:href="@{'/member/viewcontact/'+${e.id}}" class="btn btn-primary btn-sm">View</a>
+			  	
+			    	
+			  	  <a th:onclick="|deleteContact(${e.id})|" class="btn btn-danger btn-sm">Delete</a>
+			  		
+			  	
+			    </td>
+			    </tr>
+			  
+			  </tbody>
+			</table>
+		  	
+		  	</div>
+		  	
+
+			
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination">
+			   
+			    <li th:if="${currentPage != 0}" class="page-item"><a class="page-link"  th:href="@{'/member/show-contact/'+${currentPage-1}}">Previous</a></li>
+			   
+			    <li   th:classappend="${currentPage==i-1?'active':''}"  
+	 				th:each="i : ${#numbers.sequence(1,totalPages)}"  class="page-item"><a class="page-link" 
+	 				th:href="@{'/member/show-contact/'+${i-1}}">
+	 			 <span th:text="${i}"></span></a></li>
+			    
+			     <li  th:if="${currentPage != totalPages-1}" class="page-item"><a class="page-link" th:href="@{'/member/show-contact/'+${currentPage+1}}">Next</a></li>
+			  
+			  </ul>
+			</nav>
+ 
+			
+			
+		  </div>
+		  
+		</div>
+		
+	   <script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#managecontact').addClass("active");
+   	});
+   </script>
+   
+	</section>
+	 
+</body>
+</html>

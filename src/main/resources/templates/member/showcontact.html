@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Page</title>
+</head>
+<body>
+	<section>
+	  <div class="container">
+	  <div class="card" style="margin:15px;">
+	   
+	    <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+			 <h4 class="text-center  text-white pt-1 mt-1">View Contact Record</h4>
+	   </div>	
+	 
+	  	<div class="card-body">
+	  	  <table class="table text-center">
+			  <thead>
+			    <tr>
+			      <th scope="col">#CONTACT_Id</th>
+			      <th scope="col">EVENTCON<span th:text="${contact.id}"></span></th>
+			     </tr>
+			  </thead>
+			  
+			  <tbody>
+			   <tr>
+			    <td>Name</td>
+			     <td><span th:text="${contact.name}"></span></td>
+			     </tr>
+			  
+			  
+			     <tr>
+			    <td>Email</td>
+			     <td><span th:text="${contact.email}"></span></td>
+			     </tr>
+			  
+			   <tr>
+			    <td>Subject</td>
+			     <td><span th:text="${contact.subject}"></span></td>
+			     </tr>
+			     
+			     <tr>
+			    <td>Message</td>
+			     <td><span th:text="${contact.message}"></span></td>
+			     </tr>
+			               
+			       <tr>
+			       <td colspan="2"><a th:onclick="|deleteContact(${contact.id})|" style="width:100%;background: #c0392b !important;color: white !important;" class="btn btn-lg btn-block btn-danger">Delete</a>
+			 </td>
+			       </tr>    
+					               		
+			  </tbody>
+			
+			</table>
+	 
+	  	
+	  	</div>
+	  </div>
+	  
+	  </div>
+	  
+	<script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#managecontact').addClass("active");
+   	});
+   </script>
+   
+   
+	</section>
+	
+</body>
+</html>

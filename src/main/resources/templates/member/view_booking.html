@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Event Bookings</title>
+</head>
+<body>
+	<section  class="mt-2">
+		<div class="card mr-3 ml-5" style="margin:15px;">
+		 <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+		        <h3 class="text-center  text-white pt-1 mt-1">Booking Record</h3>
+		    </div>
+		<!-- this div only shown when contact is set in model -->
+		  <div class="card-body mr-3">
+				  
+		  	
+		  	
+		  	<div class="table-responsive">
+		  		<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">Name</th>
+			    <th scope="row">Email</th>
+			       <th scope="row">Phone</th>
+			     <th scope="row">D.O.B</th>
+			     <th scope="row">Gender</th>
+			   	<th scope="row">City</th>
+			   	<th scope="row">Status</th>
+			   	   <th scope="col" class="text-center">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			   
+			   
+			    <tr th:each="e : ${bookuser}">
+			      <th th:text="'USERID' + ${e.id}"></th>
+			      
+			       <td>
+			      <img src="" class="my_profile_picture" th:src="@{'/image/normal_user/' + ${e.profile_image}}" alt="profile"/>
+			      <span th:text="${e.name}"></span>
+			      </td>
+			     
+			      <td th:text="${e.email}"></td>
+			       <td th:text="${e.phone}"></td>
+			        <td th:text="${e.dob}"></td>
+			         <td th:text="${e.gender}"></td>
+			          <td th:text="${e.city}"></td>
+			      <td th:each="bookevt : ${bookevt}" th:if="${bookevt.uid == e.id  and bookevt.eventid == event.event_id}"><span style="cursor:none;" th:text="${bookevt.status}" class="btn btn-warning btn-sm" ></span> </td>
+			    	<td>
+			    	 <span th:each="bookevt : ${bookevt}" th:if="${bookevt.uid == e.id  and bookevt.eventid == event.event_id}">
+					   <a th:if="${bookevt.status == 'Pending'}"  th:onclick="|approvedBooking(${event.event_id},${e.id})|" class="btn btn-success btn-sm">Approved</a>
+			  			 <a th:if="${bookevt.status == 'Pending'}"  th:onclick="|rejectBooking(${event.event_id},${e.id})|" class="btn btn-danger btn-sm">Reject</a>
+			 		 	<a th:if="${bookevt.status == 'Rejected'}"  th:onclick="|deleteBooking(${event.event_id},${e.id})|" class="btn btn-danger btn-sm">Delete</a>
+			 		
+			 			</span>
+					 </td>
+			    </tr>
+			  
+			  </tbody>
+			</table>
+		  	
+		  	</div>
+		  	
+			
+		  </div>
+		  
+		</div>
+		
+	 <script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#manageevent').addClass("active");
+   	});
+   </script>
+   
+	</section>
+	 
+</body>
+</html>

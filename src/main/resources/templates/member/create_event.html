@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create New Event</title>
+</head>
+<body>
+	<section>
+	      		
+	      		<div class="container-fluid mt-1">
+	      			<div class="row">
+	      					<div class="col-md-10 offset-md-1">
+						      							 
+					        <div class="card mt-2 mx-auto  bg-light">
+					             <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+					        <h4 class="text-center  text-white pt-1 mt-1">Create New Event</h4>
+					    </div>	
+					    
+					            <div class="card-body bg-light">
+					       
+					           	 <div class = "container">
+					           	 
+					                   <form action="#"
+	      							 th:object="${event}"
+	      							 enctype="multipart/form-data"
+	      							 method="post"
+	      							 th:action="@{/member/process-event}"
+	      							 class="mt-2"
+	      							>
+					
+					            	 <div class="controls">
+					
+					                <div class="row mb-3">
+					                    <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_title">Event Title</label>
+					                            <input id="event_title" type="text" name="title" class="form-control" placeholder="Please enter event name" required="required" >
+					                            
+					                        </div>
+					                    </div>
+					                    <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_venue">Event Venue</label>
+					                            <input id="event_venue" type="text" name="venue" class="form-control" placeholder="Please enter event location" required="required">
+					                          </div>
+					                    </div>
+					                </div>
+					                
+					                 <div class="row mb-3">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                            <label for="event_category">Event Category</label>
+					                               <select class="form-control" id="event_category" name="category">
+												      <option value="blank">select event category</option>
+												      <option th:each="cat_option : ${cat_options}" th:value="${cat_option}" th:text="${cat_option}"></option>  
+												    </select>
+					                            </div>
+					
+					                        </div>
+					                    </div>
+					                        
+					                <div class="row mb-3">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                            <label for="event_desc">Event Description</label>
+					                            <textarea id="event_desc" name="description" class="form-control" placeholder="Enter something about event..." rows="4" required="required"></textarea>
+					                                
+					                            </div>
+					
+					                        </div>
+					                   </div> 
+					                        
+									<div class="row mb-3">
+					                    <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_start">Event Start Date</label>
+					                            <input id="event_start" type="text" name="start_date" class="form-control" placeholder="Please enter event start date" required="required" >
+					                            
+					                        </div>
+					                    </div>
+					                    <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_end">Event End Date</label>
+					                            <input id="event_end" type="text" name="end_date" class="form-control" placeholder="Please enter event end date" required="required">
+					                          </div>
+					                    </div>
+					                </div>
+					                
+					                  <div class="row mb-3">
+					                    <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_sponsored">Event Sponsored</label>
+					                               <select class="form-control" id="event_sponsored" name="sponsored">
+												      <option value="blank">select event sponsored</option>
+												        <option th:each="spon_option : ${spon_options}" th:value="${spon_option}" th:text="${spon_option}"></option>  
+												 
+												     
+												    </select>
+					                            </div>
+					
+					                        </div>
+					                        
+					                         <div class="col-md-6">
+					                        <div class="form-group">
+					                            <label for="event_status">Event Status</label>
+					                               <select class="form-control" id="event_status" name="status">
+												      <option value="blank">select event status</option>
+												      <option  value="Active">Active</option>
+												      <option value="Expired">Expired</option>
+												      <option value="Pending">Upcoming</option>
+												      
+												    </select>
+					                            </div>
+					
+					                        </div>
+					                        
+					                        </div>  
+					                                 
+					                <div class="row mb-3">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                         <label for="event_image">Event Image</label>
+					                            <input type="file" name="event_image" class="form-control" id="event_image">
+										        
+					                            </div>
+					
+					                        </div>
+					                        
+					                     </div>
+					                     
+					                     <div class="row mb-3">
+					                     	  <div class="col-md-12">
+					                        
+					                        <input type="submit" style="width:100%;background: #c0392b !important;color: white !important;" class="btn btn-lg btn-block" value="Create New Event" >
+					                    
+					               			 </div>
+					                     </div>
+					                     
+					                     
+					                  </div>
+					        
+					         </form>
+					     		   </div>
+					            </div>
+							</div>
+       				 		</div>
+	      				</div>
+	      			</div>
+	      		
+	      	<script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#addevent').addClass("active");
+   	});
+   </script>
+   
+	    
+	</section>
+	
+	
+   
+</body>
+</html>

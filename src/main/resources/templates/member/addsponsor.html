@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sponsors</title>
+</head>
+<body>
+	<section>
+	      		<div class="container-fluid mt-1">
+	      			<div class="row">
+	      					<div class="col-md-10 offset-md-1">
+						      							 
+					        <div class="card mt-2 mx-auto  bg-light">
+					             <div class="heading-div" style="background-color:rgba(6, 14, 35, 0.99); border-radius:10px;">
+					        <h4 class="text-center  text-white pt-1 mt-1">Add New Sponsor</h4>
+					    </div>	
+					    
+					            <div class="card-body bg-light">
+					       
+					           	 <div class = "container">
+					           	 
+					                   <form action="#"
+	      							 enctype="multipart/form-data"
+	      							 method="post"
+	      							 th:action="@{/member/process-sponsor}"
+	      							 class="mt-2"
+	      							>
+					
+					            	 <div class="controls">
+					
+					           
+					                        
+					                <div class="row mb-3">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                            <label for="sponsor">Sponsor</label>
+					                             <input id="sponsor" type="text" name="sponsor" class="form-control" placeholder="Please enter sponsor" required="required" >
+					                           
+					                            </div>
+					
+					                        </div>
+					                   </div> 
+					                        
+								
+					                
+					                 
+					                        
+					                                 
+					                <div class="row mb-3">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                        <label for="sponsor_logo">Sponsor Logo</label>
+					                            <input type="file" name="sponsor_image" class="form-control" id="sponsor_logo">
+										        
+					                            </div>
+					
+					                        </div>
+					                        
+					                     </div>
+					                     
+					                     <div class="row mb-3">
+					                     	  <div class="col-md-12">
+					                        
+					                        <input type="submit" style="width:100%;background: #c0392b !important;color: white !important;" class="btn btn-lg btn-block" value="Add New Sponsor" >
+					                    
+					               			 </div>
+					                     </div>
+					                     
+					                     
+					                  </div>
+					        
+					         </form>
+					     		   </div>
+					            </div>
+							</div>
+       				 		</div>
+	      				</div>
+	      			</div>
+	      		
+	      	
+	     <script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#addeventspons').addClass("active");
+   	});
+   </script>
+   
+	</section>
+	
+	
+   
+</body>
+</html>

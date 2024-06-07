@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+	<title>User Registration</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+
+<style>
+.card-registration{
+			background: white;
+			justify-content: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+		}
+		
+.login_btn {
+			
+			background: #c0392b !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		
+.brand_logo_container {
+			position: absolute;
+			height: 170px;
+			width: 170px;
+			top: -50px;
+			border-radius: 50%;
+			padding: 10px;
+			text-align: center;
+		}
+		.brand_logo {
+			height: 150px;
+			width: 150px;
+			border-radius: 50%;
+			border: 2px solid white;
+		}
+		
+</style>
+</head>
+<body>
+	<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-80">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius:50px;">
+        
+        <div class="d-flex justify-content-center mt-2 mb-2">
+					<div class="brand_logo_container">
+						<img src="../image/register.png" class="brand_logo" alt="Register">
+					</div>
+				</div>
+        
+        <!-- alert message shown  here ... -->
+	 	     	<div style="height:50px;" th:if="${session.message}" class="alert container" th:classappend="${session.message.type}" role="alert">
+				 <p class="text-center" style="font-size:20px;" th:text="${session.message.content}"></p>
+				 <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block> 
+					</div>
+					
+					
+          <div class="card-body p-md-5 mt-5">
+            <h3 class="mb-3 pb-2 pb-md-0 mb-md-5  text-center justify-center">Student Registration Form</h3>
+            <form action="#"
+	      							 enctype="multipart/form-data"
+	      							 method="post"
+	      							 th:action="@{/user/process-registration}"
+	      							 class="mt-2">
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="text" required name="name" id="Name" class="form-control form-control-lg" />
+                    <label class="form-label" for="Name">Name</label>
+                  </div>
+
+                </div>
+              
+              </div>
+              
+               <div class="row">
+                 <div class="col-md-6 mb-3">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="email" required name="email" id="email" class="form-control form-control-lg" />
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-3">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="password" required name="password" id="passwd" class="form-control form-control-lg" />
+                    <label class="form-label" for="passwd">Password</label>
+                  </div>
+
+                </div>
+              
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3 d-flex align-items-center">
+
+                  <div data-mdb-input-init class="form-outline datepicker w-100">
+                    <input type="text" required class="form-control form-control-lg" id="dateofbirth" name="dob"/>
+                    <label for="dateofbirth" class="form-label">D.O.B</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-3">
+
+                  <h6 class="mb-2 pb-1">Gender: </h6>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                      value="female" checked />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                      value="male" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="tel" required id="phoneNumber" class="form-control form-control-lg" name="phone"/>
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                  </div>
+
+                </div>
+                
+                <div class="col-md-6 mb-3 pb-2">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <input type="tel" required  id="city" class="form-control form-control-lg" name="city"/>
+                    <label class="form-label" for="city">City</label>
+                  </div>
+                </div>
+                
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-12">
+ 				<input type="text" id="address" required class="form-control form-control-lg" name="address"/>
+                    <label class="form-label" for="address">Address</label>
+                </div>
+              </div>
+
+ 						<div class="row mb-2">
+					                    <div class="col-12">
+					                        <div class="form-group">
+					                        
+					                            <input type="file" name="profile_image" class="form-control" id="profile_logo"/>
+					                            <label for="profil_logo">Profile Photo</label>
+					                            </div>
+										 </div>
+					                </div>
+					                     
+				
+              <div class="d-flex mt-2 pt-2 justify-content-center  login_container">
+             	<input type="submit" name="submit" class="btn login_btn" value="Register"/>
+				 	<input type="reset" name="reset" class="btn btn-warning mx-2" value="Reset"/>
+              </div>
+
+
+			<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Already have an account? <a href="user_signin" class="ml-2">Sign In</a>
+					</div>
+					
+						<div class="d-flex justify-content-center links">
+						Go to Home Page? <a href="/" class="ml-2">Click Here</a>
+					</div>
+					
+				</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

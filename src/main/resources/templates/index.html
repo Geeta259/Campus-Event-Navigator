@@ -1,0 +1,482 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>NITRR Campus Event Navigator System</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="css/main_style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<!-- navbar section -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+     <a href="#"><img style="width:40px;height:40px;" src="img/nitlogo.png" alt="" title=""></a>
+    <a class="navbar-brand" href="#"><span class="text-danger">NITRR </span> Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#carouselExampleCaptions">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#category">Category</a>
+        </li>
+   
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#sponsor">Sponsors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item"  th:if="${session.login_user == null and session.login_member==null}">
+          <a class="nav-link btn-login" aria-current="page" href="signin">Admin Login</a>
+        </li>
+        <li class="nav-item" th:if="${session.login_user == null and session.login_member==null}">
+          <a class="nav-link btn-login" aria-current="page" href="/user_signin">User Login</a>
+        </li>      
+        
+           
+           <li class="nav-item" th:unless="${session.login_user == null}"><a class="nav-link btn-login" href="/user/index">Dashboard</a></li>
+            <li class="nav-item" th:unless="${session.login_member == null}"><a class="nav-link btn-login"  href="/member/index">Dashboard</a></li>
+   
+          <li class="nav-item" th:unless="${session.login_user == null}" ><a class="nav-link btn-login" href="/user_logout">User Logout</a></li>
+           <li class="nav-item" th:unless="${session.login_member == null}"><a class="nav-link btn-login" href="/member/logout">Member Logout</a></li>
+   
+     
+      </ul>
+    
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- banner  image -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/nitrr.jpg" class="d-block w-100" alt="">
+      <div class="carousel-caption">
+       <h3>NITRR Annual<br><span>Events</span> Navigation</h3>
+      <p>A PLATFORM TO UNLEASH YOUR POTENTIALS</p>
+      <a class="abt-link" href="#">About The Event</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h3>NITRR Annual<br><span>Events</span> Navigation</h3>
+      <p>A PLATFORM TO UNLEASH YOUR POTENTIALS</p>
+      <a class="abt-link" href="#">About The Event</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/banner2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+       <h3>NITRR Annual<br><span>Events</span> Navigation</h3>
+      <p>A PLATFORM TO UNLEASH YOUR POTENTIALS</p>
+      <a class="abt-link" href="#">About The Event</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+ <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>About The Event</h2>
+            <p>Events is that celebrates the diverse talents and interests of our student community. From engaging workshops and insightful panel discussions to captivating cultural performances, It's promises an enriching experience for all attendees. Organized by passionate students and faculty members, our event aims to foster creativity, collaboration, and personal growth. Join us as we come together to inspire, learn, and create unforgettable memories. 
+            Stay tuned for updates on schedule, registration, and exciting highlights!
+
+            </p>
+          </div>
+          <div class="col-lg-3">
+            <h3>Where</h3>
+            <p>National Institute of Technology  Raipur
+		     G.E. Road, Raipur
+		     Chhatisgarh - 492010</p>
+          </div>
+          <div class="col-lg-3">
+            <h3>Contacts</h3>
+            <p> Telephone Number   +91-771-2254200<br>
+			 Fax   : +91-771-2254600<br>
+			Email- director@nitrr.ac.in (Address : 1st Floor, NIT Campus, G E Road, Raipur, Raipur, Chhattisgarh, 492010)<br>
+			Email- registrar@nitrr.ac.in (Address : 1st Floor, NIT Campus, G E Road, Raipur, Raipur, Chhattisgarh, 492010)</p>
+			 </div>
+        </div>
+      </div>
+    </section>
+
+ <section id="events">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">HERE COMES OUR EVENTS LINEUP</h2>
+          <p style="font-size:22px;opacity:0.8;">Here are some glimpse</p>
+        </div>
+        
+        <div class="container mt-5">
+        	<div class="row row-cols-1 g-5 row-cols-md-3 row-cols-lg-3">
+        		<div class="col" th:each="e : ${events}">
+        		<div class="card overflow-hidden shadow border-0 " id="card-hover">
+        		<img  th:href="@{'/event_detail/'+${e.event_id}}" th:src="@{'/image/events/' + ${e.image}}" src="" class="card-img-top" style="width:100%;height:250px;" alt="event1"/>
+        			<div class="card-body text-white text-center bg-opacity-100" style="opacity:0.9;width:100%;background:rgb(0 3 16 / 98%);" id="card-text">
+        			 
+		        		 <h3 class="card-title text-capitalize fw-bold -mb-2"><a  th:href="@{'/event_detail/'+${e.event_id}}" th:text="${e.title}"></a></h3>
+		                <p class="card-text"><a th:href="@{'/event_detail/'+${e.event_id}}" style="text-decoration:none;color:white;">Category : <span th:text="${e.category}"></span></a></p>
+		                <p><a th:href="@{'/event_detail/'+${e.event_id}}" style="text-decoration:none;color:white;">Venue : <span th:text="${e.venue}"></span></a></p>
+		                <p><a th:href="@{'/event_detail/'+${e.event_id}}" style="text-decoration:none;color:white;">Start Date : <span th:text="${e.start_date}"></span></a></p>
+		                <p><a th:href="@{'/event_detail/'+${e.event_id}}" style="text-decoration:none;color:white;">End Date : <span th:text="${e.end_date}"></span></a></p>
+		        		
+		        	</div>
+        			
+        		</div>
+        		</div>
+        	
+        	</div>
+        </div>
+        
+       </div>
+
+			<div class="mt-5 text-center">
+			    <a href="all_events" class="custom-button">View All</a>
+			</div>
+			
+      </section>
+
+
+    <!--==========================
+      Venue Section
+    ============================-->
+    <section id="venue" class="wow fadeInUp">
+
+      <div class="container-fluid">
+
+        <div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">EVENT VENUE</h2>
+          <p style="font-size:22px;opacity:0.8;">Event venue location info and gallery</p>
+        </div>
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 venue-map">
+            <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=National%20Institute%20of%20Technology%20Raipur%20G.E.%20Road,%20Raipur%20Chhatisgarh%20-%20492010+(NITRR)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="700" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		    </div>
+
+          <div class="col-lg-6 venue-info"  style='background:rgb(0 3 16 / 98%); width:45%; color:white; opacity:0.9; margin-left:45px'>
+            <div class="row justify-content-center">
+              <div class="col-11 col-lg-8" style="margin-top:40px">
+                <h1>National Institute of Technology  Raipur </h1>
+                <p style="font-size:15px;font-family: sans-serif;padding:4px">The institute is committed to the challenging task of development of technical education by preparing seasoned graduates in highly sophisticated field of engineering and technology. Development of India as an emerging industrial power is a demanding exercise as it involves the combination of cost effectiveness and efficiency along with producing world-class technology at the cutting edge. For about five decades we have been doing it with sincerity and commitment at NIT Raipur. At present the institute offers graduate level courses in twelve disciplines.
+                </p>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-fluid venue-gallery-container">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/venue-gallery/1.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/venue-gallery/v1.jpeg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/venue-gallery/2.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/venue-gallery/v2.jpeg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/venue-gallery/3.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/venue-gallery/v3.jpeg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="venue-gallery">
+              <a href="img/venue-gallery/4.jpg" class="venobox" data-gall="venue-gallery">
+                <img src="img/venue-gallery/v4.jpeg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>       
+        </div>
+      </div>
+
+    </section>    
+    
+    <!-- event category -->
+      
+    <section id="category" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">EVENT CATEGROY</h2>
+          <p style="font-size:22px;opacity:0.8;">Here are some glimpses of events category</p>
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+
+          <div class="col-lg-4 col-md-6" th:each="c : ${category}">
+            <div class="category-section">
+              <div class="category-img">
+                <img src="" th:src="@{'/image/category/' + ${c.image}}"  style="height:220px;width:100%;" alt="category" class="img-fluid">
+              </div>
+              <h3><a href="#"  th:text="${c.category}"></a></h3>
+              <p th:text="${c.description}"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="mt-5 text-center">
+			    <a href="all_category" class="custom-button">View All</a>
+			</div>
+
+    </section>
+    
+    <!-- event sponsor -->
+   
+      
+    <section id="sponsor" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">EVENT SPONSORS</h2>
+        
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+
+          <div class="col-lg-3 col-md-4 sponsor-section" th:each="c : ${sponsors}">
+           
+              <div class="sponsor-img">
+                <img th:src="@{'/image/sponsor/' + ${c.image}}" style="height:150px;width:100%;margin:10px;padding-right:20px;" alt="sponsor" class="img-fluid">
+              </div>            
+           
+          </div>    
+        </div>
+      </div>
+      
+    <div class="mt-5 text-center">
+			    <a href="all_sponsors" class="custom-button">View All</a>
+			</div>
+
+    </section>
+    
+    
+    <!-- event  coordinator -->
+     <section id="events">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">HERE COMES OUR EVENTS COORDINATORS</h2>
+          <p style="font-size:22px;opacity:0.8;">Here are some talented peoples</p>
+        </div>
+        
+        <div class="container mt-5">
+        	<div class="row">
+        			<div class="col-6 col-md-4 col-lg-3" style="height:300px;"  th:each="e : ${coordinator}">
+        		<div class="card overflow-hidden shadow border-0 " id="card-hover">
+        			<img th:src="@{'/image/coordinator/' + ${e.image}}"   class="card-img-top" style="width:100%;height:280px;" alt="event1">
+        			<div class="card-body text-white text-center bg-opacity-100" style="width:100%;background:rgb(0 3 16 / 98%);" id="card-text">
+		        		 <h3 class="card-title text-capitalize fw-bold"><a href="#" th:text="${e.coordname}"></a></h3>
+		                <p>Branch : <span th:text="${e.branch}"></span></p>
+		                <p>Member Of : <span th:text="${e.eventname}"></span></p>
+		                 <p>Phone : <span th:text="${e.phone}"></span> </p>
+                <p><span th:text="${e.email}"></span></p>
+		        		
+		        	</div>
+        		</div>
+        		</div>	
+        	</div>
+        </div>
+        </div>
+        
+      	<div class="text-center  mt-5">
+			    <a href="all_coordinators" class="custom-button">View All</a>
+			</div>
+			
+      </section>
+      
+      
+      <!-- contact  section -->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+  			<div class="section-header text-center">
+          <h2 style="color:rgb(0 3 16 / 98%); font-weight:bold; margin-top:60px; font-size:35px; opacity:0.9;">Contact Us</h2>
+          <p style="font-size:22px;opacity:0.8;">Be well, do good work, and keep in touch</p>
+        </div>
+    
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>
+			     G.E. Road, Raipur Chhatisgarh - 492010</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p>+91-771-2254200</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p>registrar@nitrr.ac.in</p>
+            </div>
+          </div>
+
+        </div>				
+	    
+	    			
+	    			<!-- alert message shown  here ... -->
+	    	
+	 	     	<div th:if="${session.message}"  class="alert container" th:classappend="${session.message.type}" role="alert"  style="height:50px;">
+				 <p class="text-center" style="font-size:18px" th:text="${session.message.content}"></p>
+				 <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block> 
+					</div>
+					
+        <div class="form">
+          
+	    
+          <form action="" th:action="@{process-contact}" method="post" role="form" class="contactForm">
+          
+       
+            <div class="form-group"  style="display:flex;">
+              <div class="col-md-6">
+                <input type="text" name="name" required class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+               
+              </div>
+              <div class="col-md-6" style="margin-left:10px">
+                <input type="email" class="form-control" required name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+               
+              </div>
+            </div>
+            
+            <div class="form-group" style="margin-top:10px">
+              <input type="text" class="form-control" required name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              
+            </div>
+            <div class="form-group" style="margin-top:10px">
+              <textarea class="form-control" name="message" required  rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+            </div>
+            <div class="text-center"  style="margin-top:20px"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+    
+    
+    
+     <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <img src="img/nitlogo.png" alt="TheEvenet"> <span style="font-family:sans-serif;font-size:16px;">National Institute Of  Technology, Raipur</span>
+            <p>The institute is committed to the challenging task of development of technical education by preparing seasoned graduates in highly sophisticated field of engineering and technology. Development of India as an emerging industrial power is a demanding exercise as it involves the combination of cost effectiveness and efficiency along with producing world-class technology at the cutting edge.
+             For about five decades we have been doing it with sincerity and commitment at NIT Raipur.
+             </p>
+             </div>
+
+         
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="fa fa-angle-right"></i> <a href="#carouselExampleCaptions">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#about">About</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#events">Events</a></li>
+               <li><i class="fa fa-angle-right"></i> <a href="#category">Category</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#sponsor">Sponsors</a></li>
+         
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+             
+			 National Institute of Technology  Raipur<br>
+			     G.E. Road, Raipur<br>
+			     Chhatisgarh - 492010<br>
+			
+			      <strong>Phone:</strong> +91-771-2254200<br>
+              <strong>Email:</strong> registrar@nitrr.ac.in <br>
+              <strong>Email:</strong>  director@nitrr.ac.in <br>
+            </p>
+
+            <div class="social-links">
+              <a href="https://twitter.com/Nitrr" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="https://www.facebook.com/updates.nitrr/" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://www.instagram.com/innovation_cell.nitrr/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://nitrr.ac.in/" class="google-plus"><i class="fa-brands fa-google-plus"></i></a>
+              <a href="https://www.linkedin.com/school/national-institute-of-technology-raipur/?originalSubdomain=in" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="height:50px">
+      <div class="copyright">
+        &copy; Copyright <strong> NITRR Campus Event Navigator</strong>. All Rights Reserved !
+      </div>
+      <div class="credits">
+      
+       <p> @ Made with <i class="fa-solid fa-heart" style="color:#f82249;"></i> By <b>GEETA</b></p>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+    
+      
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

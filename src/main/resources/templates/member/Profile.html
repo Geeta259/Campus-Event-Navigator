@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="member/base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile Page</title>
+</head>
+<body>
+	<section>
+	  <div class="container">
+	  <div class="card" style="margin:15px;">
+	  	<div class="card-body">
+	  	<div class="container text-center" >
+	  	<img src="" style="height:200px; width:200px;" class="my_profile_picture" th:src="@{'/image/' + ${user.image}}"  alt="profile"/>
+	  	</div>
+	  		 
+	  		 
+	  	 <h1 class="text-center mt-3" th:text="${user.name}"></h1>
+	  	<form method="post" th:action="@{/member/update-profile}">
+	  		  <table class="table text-center">
+			  <thead>
+			    <tr>
+			      <th scope="col">#MEMBER_Id</th>
+			      <th scope="col">EVENTADM<span th:text="${user.id}"></span></th>
+			     </tr>
+			  </thead>
+			  
+			  <tbody>
+			     <tr>
+			    <td>Email</td>
+			     <td><span th:text="${user.email}"></span></td>
+			     </tr>
+			  
+			   <tr>
+			    <td>Role</td>
+			     <td><span th:text="${user.role}"></span></td>
+			     </tr>
+			     
+			     <tr>
+			    <td>Phone</td>
+			     <td><span th:text="${user.phone}"></span></td>
+			     </tr>
+			     
+			      <tr>
+			    <td>Account Active</td>
+			     <td><span th:text="${user.enabled}"></span></td>
+			     </tr>
+			     
+			       <tr>
+			   <td>About</td>
+			     <td><span th:text="${user.about}"></span></td>
+			     </tr>
+			  
+			  <tr>
+			   <td colspan="2"> <input type="submit" style="width:100%;background: #c0392b !important;color: white !important;" class="btn btn-lg btn-block" value="Update Profile" ></td>
+					</tr>                    
+					               		
+			  </tbody>
+			
+			</table>
+	  	</form>
+	  
+	  	
+	  	</div>
+	  </div>
+	  
+	  </div>
+	  
+	<script>
+   	$(document).ready(()=> {
+   		$(".item").removeClass("active");
+   		$('#manageprofile').addClass("active");
+   	});
+   </script>
+   
+   
+	</section>
+	
+</body>
+</html>
