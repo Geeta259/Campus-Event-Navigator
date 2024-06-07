@@ -26,7 +26,7 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Frontend**: Thymeleaf, HTML, CSS, JavaScript, Bootstrap
 - **Database**: MySQL
 
-  ## Usage
+## Usage
 
 ### User Functionalities
 
