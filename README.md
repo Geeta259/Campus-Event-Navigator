@@ -64,4 +64,6 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Booking Management**: Handle event booking of users.
 - **Feedback Management**: Collect and manage user feedback on events.
 
-  
+### Video Demo of Campus Event Navigator System
+Watch the video demo below to understand how the project works:
+<video width="630" height="300" src="https://drive.google.com/file/d/1ZEq3xdTyFjMu77OZh3a97niB21sHQ64T/view?usp=sharing"></video>
