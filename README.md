@@ -65,7 +65,5 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Feedback Management**: Collect and manage user feedback on events.
 
 ### Video Demo of Campus Event Navigator System
-Watch the video demo below to understand how the project works:
-<div align="center">
-  <iframe src="https://drive.google.com/file/d/1ZEq3xdTyFjMu77OZh3a97niB21sHQ64T/preview" width="640" height="480" allow="autoplay"></iframe>
-</div>
+Watch the**Clickable Image**: The line `[![Watch the video](https://drive.google.com/file/d/1ZEq3xdTyFjMu77OZh3a97niB21sHQ64T/preview)` 
+
