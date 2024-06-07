@@ -8,7 +8,7 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 
 - **User Registration and Authentication**
   - Users can register, log in, and log out securely.
-  - Administrators verify user accounts to ensure authenticity.
+  - Users can booked event, and it's  approved or  cancelled by an event member's or administrator.
 
 - **Event Management**
   - Users can view event details, locations, categories, sponsors, coordinators, and other related information.
@@ -28,7 +28,7 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 
   ## Usage
 
-### User Authentication
+### User Functionalities
 
 - **Register**: Create a new account by providing your details on the registration page.
 - **Login**: Access your account using your credentials.
@@ -40,6 +40,17 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 
 - **Event Listing**: Browse through a list of all upcoming events.
 - **Event Details**: Click on an event to view detailed information including location, category, sponsors, and coordinators.
+
+### Member Functionalities
+
+- **Register into System**: Sign up by providing necessary details to create an account.
+- **Verification by Administrator**: Await admin approval to ensure account authenticity.
+- **Login into System**: Access the system using verified credentials.
+ - **Profile Management**: Update profile and reset passwords.
+- **Create Own Events**: Organize personal events with specified details.
+- **Sponsor Management**: Add, update, or remove sponsors for personal events.
+- **Category Management**: Manage categories for organizing personal events.
+- **Coordinator Management**: Assign and manage coordinators for personal events.
   
 ### Admin Functionalities
 
@@ -47,7 +58,10 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Sponsor Management**: Add, update, or remove sponsors.
 - **Category Management**: Manage event categories.
 - **Coordinator Management**: Assign coordinators to events.
-- **Profile Management**: Update user profiles and reset passwords.
+- **Member Management**: Approve or cancel event member registrations.
+- **Profile Management**: Update profile and reset passwords.
 - **Contact Management**: Handle user inquiries and assistance requests through the contact form.
+- **Booking Management**: Handle event booking of users.
+- **Feedback Management**: Collect and manage user feedback on events.
 
   
