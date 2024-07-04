@@ -9,6 +9,15 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **User Registration and Authentication**
   - Users can register, log in, and log out securely.
   - Users can booked event, and it's  approved or  cancelled by an event member's or administrator.
+  -  Registration: Allows new users to sign up by providing necessary details.
+  -  Login: Enables users to log in with their credentials.
+  - Change Password: Users can update their password for security.
+  -  Forgot Password: Implemented with OTP to securely reset the password.
+  -  Event Booking: Users can book events they are interested in attending.
+  -  Check Event Status: Users can view the status of their booked events.
+  -  Delete Booked Events: Users have the option to delete their event bookings if the admin has not yet take any action.
+  -  Provide Feedback: Users can give feedback on events they have attended.
+
 
 - **Event Management**
   - Users can view event details, locations, categories, sponsors, coordinators, and other related information.
@@ -16,9 +25,6 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
   
 - **User-Administrator Communication**
   - Users can contact administrators through a contact form for inquiries or assistance.
-
-- **Admin Functionalities**
-  - Efficient management of events, sponsors, categories, coordinators, profiles, passwords, and contacts.
     
 ## Technologies Used
 
