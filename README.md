@@ -51,8 +51,8 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Sponsor Management**: Add, update, or remove sponsors for personal events.
 - **Category Management**: Manage categories for organizing personal events.
 - **Coordinator Management**: Assign and manage coordinators for personal events.
-- **Change Password: Update the password for the member account.
--  **Dashboard Data Security: Ensure that the dashboard only shows data related to the logged-in member, with no visibility into other members' data.
+- **Change Password**: Update the password for the member account.
+- **Dashboard Data Security**: Ensure that the dashboard only shows data related to the logged-in member, with no visibility into other members' data.
   
 ### Admin Functionalities
 
@@ -65,8 +65,8 @@ Welcome to the Campus Event Navigation System! This project is a comprehensive w
 - **Contact Management**: Handle user inquiries and assistance requests through the contact form.
 - **Booking Management**: Handle event booking of users.
 - **Feedback Management**: Collect and manage user feedback on events.
-- **Manage New Member Requests: Approve or reject new member requests.
-- **Login Approval: Ensure that only members approved by the admin can log into the system, preventing unauthorized access.
+- **Manage New Member Requests**: Approve or reject new member requests.
+- **Login Approval**: Ensure that only members approved by the admin can log into the system, preventing unauthorized access.
 
 
 ### Video Demo of Campus Event Navigator System
